@@ -1,11 +1,11 @@
 const pageConfig = {
   // Title for your status page
-  title: "lyc8503's Status Page",
+  title: "Sun Status Page",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
-    { link: 'https://github.com/lyc8503', label: 'GitHub' },
-    { link: 'https://blog.lyc8503.site/', label: 'Blog' },
-    { link: 'mailto:me@lyc8503.site', label: 'Email Me', highlight: true },
+    // { link: 'https://github.com/lyc8503', label: 'GitHub' },
+    // { link: 'https://blog.lyc8503.site/', label: 'Blog' },
+    // { link: 'mailto:me@lyc8503.site', label: 'Email Me', highlight: true },
   ],
 }
 
@@ -17,13 +17,13 @@ const workerConfig = {
     // Example HTTP Monitor
     {
       // `id` should be unique, history will be kept if the `id` remains constant
-      id: 'foo_monitor',
+      id: 'deeplx_monitor',
       // `name` is used at status page and callback message
-      name: 'My API Monitor',
+      name: 'deeplx',
       // `method` should be a valid HTTP Method
       method: 'POST',
       // `target` is a valid URL
-      target: 'https://example.com',
+      target: 'https://deeplx.csun.site/translate',
       // [OPTIONAL] `tooltip` is ONLY used at status page to show a tooltip
       tooltip: 'This is a tooltip for this monitor',
       // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
@@ -34,16 +34,15 @@ const workerConfig = {
       timeout: 10000,
       // [OPTIONAL] headers to be sent
       headers: {
-        'User-Agent': 'Uptimeflare',
-        Authorization: 'Bearer YOUR_TOKEN_HERE',
+        'Content-Type': 'application/json'
       },
       // [OPTIONAL] body to be sent
-      body: 'Hello, world!',
+      body: "{'text': 'hello world', 'source_lang': 'EN','target_lang': 'ZH'}",
       // [OPTIONAL] if specified, the response must contains the keyword to be considered as operational.
-      responseKeyword: 'success',
+      responseKeyword: '哈罗世界',
       // [OPTIONAL] if specified, the check will run in your specified region,
       // refer to docs https://github.com/lyc8503/UptimeFlare/wiki/Geo-specific-checks-setup before setting this value
-      checkLocationWorkerRoute: 'https://xxx.example.com',
+      // checkLocationWorkerRoute: 'https://xxx.example.com',
     },
     // Example TCP Monitor
     {
